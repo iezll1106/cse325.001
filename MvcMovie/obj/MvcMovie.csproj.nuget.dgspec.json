@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin2\\Documents\\GitHub\\CSE325\\cse325.001\\MvcMovie\\MvcMovie.csproj": {}
+    "C:\\Users\\Admin2\\Documents\\GitHub\\cse325.001\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin2\\Documents\\GitHub\\CSE325\\cse325.001\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\Users\\Admin2\\Documents\\GitHub\\cse325.001\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin2\\Documents\\GitHub\\CSE325\\cse325.001\\MvcMovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\Admin2\\Documents\\GitHub\\cse325.001\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\Admin2\\Documents\\GitHub\\CSE325\\cse325.001\\MvcMovie\\MvcMovie.csproj",
+        "projectPath": "C:\\Users\\Admin2\\Documents\\GitHub\\cse325.001\\MvcMovie\\MvcMovie.csproj",
         "packagesPath": "C:\\Users\\Admin2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin2\\Documents\\GitHub\\CSE325\\cse325.001\\MvcMovie\\obj\\",
+        "outputPath": "C:\\Users\\Admin2\\Documents\\GitHub\\cse325.001\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin2\\AppData\\Roaming\\NuGet\\NuGet.Config"
