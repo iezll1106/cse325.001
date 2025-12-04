@@ -1,0 +1,33 @@
+@inherits LayoutComponentBase
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
+
+    <a href="" class="nav-tab">
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </a>
+
+    <a href="myorders" class="nav-tab">
+        <img src="img/bike.svg" />
+        <div>My Orders</div>
+    </a>
+</div>
+
+<!-- PAGE CONTENT WRAPPER -->
+<div class="content">
+    @Body
+</div>
+
+<!-- FOOTER (always bottom) -->
+<footer class="footer">
+    @((MarkupString)TrademarkMessage)
+</footer>
+
+@code {
+    public string TrademarkMessage { get; set; } =
+        "All content is &copy; Blazing Pizzas 2025 • Liezl G. Lizardo • Philippines";
+}
