@@ -1,0 +1,123 @@
+/* -----------------------------------------
+   CONNECT FOUR BOARD — PERFECT ALIGNMENT
+------------------------------------------ */
+
+.board-wrapper[b-2hsj6j6moh] {
+    position: relative;
+    width: 28em;
+    margin-left: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Drop buttons */
+.drop-row[b-2hsj6j6moh] {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 4em);
+    gap: 0.2em;
+    justify-items: center;
+    margin-bottom: 0.6em;
+}
+
+.drop-button[b-2hsj6j6moh] {
+    width: 4em;
+    height: 2em;
+    background: #cce0ff;
+    border: 1px solid #80aaff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* -----------------------------------------
+   BOARD + HOLES
+------------------------------------------ */
+
+.board[b-2hsj6j6moh] {
+    position: relative;
+    width: 28em;
+    height: 24em;
+    background: yellow;
+    border-radius: 1.5em;
+
+    /* IMPORTANT FIX */
+    padding: 0;  
+    display: grid;
+    grid-template-columns: repeat(7, 4em);
+    grid-template-rows: repeat(6, 4em);
+}
+
+/* Hole containers now perfectly aligned in grid */
+span.container[b-2hsj6j6moh] {
+    width: 4em;
+    height: 4em;
+    position: relative;
+}
+
+/* WHITE HOLES — corrected size and centering */
+.container span[b-2hsj6j6moh] {
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
+    background: white;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* -----------------------------------------
+   GAME PIECES — final perfect alignment
+------------------------------------------ */
+
+.player1[b-2hsj6j6moh], .player2[b-2hsj6j6moh] {
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+
+    left: calc(var(--col) * 4em + 2em);
+    top: calc(var(--row) * 4em + 2em);
+    transform: translate(-50%, -50%);
+}
+
+.player1[b-2hsj6j6moh] { background: red; }
+.player2[b-2hsj6j6moh] { background: blue; }
+
+/* Column variables */
+.col0[b-2hsj6j6moh] { --col: 0; }
+.col1[b-2hsj6j6moh] { --col: 1; }
+.col2[b-2hsj6j6moh] { --col: 2; }
+.col3[b-2hsj6j6moh] { --col: 3; }
+.col4[b-2hsj6j6moh] { --col: 4; }
+.col5[b-2hsj6j6moh] { --col: 5; }
+.col6[b-2hsj6j6moh] { --col: 6; }
+
+/* Row variables */
+.row0[b-2hsj6j6moh] { --row: 0; }
+.row1[b-2hsj6j6moh] { --row: 1; }
+.row2[b-2hsj6j6moh] { --row: 2; }
+.row3[b-2hsj6j6moh] { --row: 3; }
+.row4[b-2hsj6j6moh] { --row: 4; }
+.row5[b-2hsj6j6moh] { --row: 5; }
+
+
+/* Drop animation */
+.drop0[b-2hsj6j6moh] { animation: drop0-b-2hsj6j6moh .3s forwards ease-out; }
+.drop1[b-2hsj6j6moh] { animation: drop1-b-2hsj6j6moh .4s forwards ease-out; }
+.drop2[b-2hsj6j6moh] { animation: drop2-b-2hsj6j6moh .5s forwards ease-out; }
+.drop3[b-2hsj6j6moh] { animation: drop3-b-2hsj6j6moh .6s forwards ease-out; }
+.drop4[b-2hsj6j6moh] { animation: drop4-b-2hsj6j6moh .7s forwards ease-out; }
+.drop5[b-2hsj6j6moh] { animation: drop5-b-2hsj6j6moh .8s forwards ease-out; }
+
+@keyframes drop0-b-2hsj6j6moh { 100% { top: calc(0 * 4em + 2em); } }
+@keyframes drop1-b-2hsj6j6moh { 100% { top: calc(1 * 4em + 2em); } }
+@keyframes drop2-b-2hsj6j6moh { 100% { top: calc(2 * 4em + 2em); } }
+@keyframes drop3-b-2hsj6j6moh { 100% { top: calc(3 * 4em + 2em); } }
+@keyframes drop4-b-2hsj6j6moh { 100% { top: calc(4 * 4em + 2em); } }
+@keyframes drop5-b-2hsj6j6moh { 100% { top: calc(5 * 4em + 2em); } }

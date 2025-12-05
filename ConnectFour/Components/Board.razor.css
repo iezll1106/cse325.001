@@ -1,0 +1,123 @@
+/* -----------------------------------------
+   CONNECT FOUR BOARD — PERFECT ALIGNMENT
+------------------------------------------ */
+
+.board-wrapper {
+    position: relative;
+    width: 28em;
+    margin-left: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Drop buttons */
+.drop-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 4em);
+    gap: 0.2em;
+    justify-items: center;
+    margin-bottom: 0.6em;
+}
+
+.drop-button {
+    width: 4em;
+    height: 2em;
+    background: #cce0ff;
+    border: 1px solid #80aaff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* -----------------------------------------
+   BOARD + HOLES
+------------------------------------------ */
+
+.board {
+    position: relative;
+    width: 28em;
+    height: 24em;
+    background: yellow;
+    border-radius: 1.5em;
+
+    /* IMPORTANT FIX */
+    padding: 0;  
+    display: grid;
+    grid-template-columns: repeat(7, 4em);
+    grid-template-rows: repeat(6, 4em);
+}
+
+/* Hole containers now perfectly aligned in grid */
+span.container {
+    width: 4em;
+    height: 4em;
+    position: relative;
+}
+
+/* WHITE HOLES — corrected size and centering */
+.container span {
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
+    background: white;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* -----------------------------------------
+   GAME PIECES — final perfect alignment
+------------------------------------------ */
+
+.player1, .player2 {
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+
+    left: calc(var(--col) * 4em + 2em);
+    top: calc(var(--row) * 4em + 2em);
+    transform: translate(-50%, -50%);
+}
+
+.player1 { background: red; }
+.player2 { background: blue; }
+
+/* Column variables */
+.col0 { --col: 0; }
+.col1 { --col: 1; }
+.col2 { --col: 2; }
+.col3 { --col: 3; }
+.col4 { --col: 4; }
+.col5 { --col: 5; }
+.col6 { --col: 6; }
+
+/* Row variables */
+.row0 { --row: 0; }
+.row1 { --row: 1; }
+.row2 { --row: 2; }
+.row3 { --row: 3; }
+.row4 { --row: 4; }
+.row5 { --row: 5; }
+
+
+/* Drop animation */
+.drop0 { animation: drop0 .3s forwards ease-out; }
+.drop1 { animation: drop1 .4s forwards ease-out; }
+.drop2 { animation: drop2 .5s forwards ease-out; }
+.drop3 { animation: drop3 .6s forwards ease-out; }
+.drop4 { animation: drop4 .7s forwards ease-out; }
+.drop5 { animation: drop5 .8s forwards ease-out; }
+
+@keyframes drop0 { 100% { top: calc(0 * 4em + 2em); } }
+@keyframes drop1 { 100% { top: calc(1 * 4em + 2em); } }
+@keyframes drop2 { 100% { top: calc(2 * 4em + 2em); } }
+@keyframes drop3 { 100% { top: calc(3 * 4em + 2em); } }
+@keyframes drop4 { 100% { top: calc(4 * 4em + 2em); } }
+@keyframes drop5 { 100% { top: calc(5 * 4em + 2em); } }
