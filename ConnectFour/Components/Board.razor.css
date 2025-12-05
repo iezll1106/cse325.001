@@ -2,15 +2,6 @@
    CONNECT FOUR BOARD — PERFECT ALIGNMENT
 ------------------------------------------ */
 
-.board-wrapper {
-    position: relative;
-    width: 28em;
-    margin-left: 17rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* Drop buttons */
 .drop-row {
     width: 100%;
@@ -86,8 +77,8 @@ span.container {
     transform: translate(-50%, -50%);
 }
 
-.player1 { background: red; }
-.player2 { background: blue; }
+.player1 { background: var(--player1); }
+.player2 { background: var(--player2); }
 
 /* Column variables */
 .col0 { --col: 0; }
@@ -121,3 +112,55 @@ span.container {
 @keyframes drop3 { 100% { top: calc(3 * 4em + 2em); } }
 @keyframes drop4 { 100% { top: calc(4 * 4em + 2em); } }
 @keyframes drop5 { 100% { top: calc(5 * 4em + 2em); } }
+
+/* GAME CONTAINER → board on left, history on right */
+.game-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin-left: 17rem; /* keep your alignment */
+    margin-top: 1em;
+}
+
+/* Left section for board */
+.board-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Right section for move history */
+.history-panel {
+    width: 14em;
+    background: #f5f5f5;
+    padding: 1em;
+    border-radius: 10px;
+    height: 26em;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.history-panel h3 {
+    margin-top: 0;
+}
+
+.history-panel ul {
+    padding-left: 1em;
+}
+
+.history-panel li {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+}
+
+.color-selectors {
+    margin-left: 17rem;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+.color-selectors select {
+    padding: 0.3em;
+    border-radius: 6px;
+    font-size: 1em;
+}

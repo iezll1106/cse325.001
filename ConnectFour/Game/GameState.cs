@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class GameState
 {
     public enum WinState { None, Player1_Wins, Player2_Wins, Tie }
@@ -7,11 +10,17 @@ public class GameState
 
     private readonly byte[,] board = new byte[6, 7];
 
+    // ✅ This must be here, INSIDE the class
+    public List<string> MoveHistory { get; private set; } = new();
+
     public void ResetBoard()
     {
         Array.Clear(board, 0, board.Length);
         PlayerTurn = 1;
         CurrentTurn = 0;
+
+        // Reset move log
+        MoveHistory.Clear();
     }
 
     public byte PlayPiece(byte col)
@@ -19,13 +28,16 @@ public class GameState
         if (col > 6)
             throw new ArgumentException("Column out of range.");
 
-        for (byte row = 5; row != 255; row--) // counts 5,4,3,2,1,0
+        for (byte row = 5; row != 255; row--)
         {
             if (board[row, col] == 0)
             {
                 board[row, col] = PlayerTurn;
 
-                byte landingRow = row;     // 0–5 from top, 5 bottom
+                byte landingRow = row;
+
+                // Record move BEFORE switching player
+                MoveHistory.Add($"Player {PlayerTurn} → Column {col + 1}");
 
                 CurrentTurn++;
 

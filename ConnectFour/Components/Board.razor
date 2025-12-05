@@ -1,12 +1,13 @@
-@page "/"
 @inject GameState State
+@inject IJSRuntime JS
+
 
 <HeadContent>
     <style>
         :root {
             --board-bg: yellow;
-            --player1: red;
-            --player2: blue;
+            --player1: red;   /* default color */
+            --player2: blue;  /* default color */
         }
     </style>
 </HeadContent>
@@ -19,27 +20,66 @@
     <span class="alert-info">@CurrentTurn</span>
 </article>
 
-<!-- IMPORTANT FIX → pieces are inside .board -->
-<div class="board-wrapper">
+<h3>Select Player Colors</h3>
 
-    <div class="drop-row">
-        @for (byte i = 0; i < 7; i++)
-        {
-            var col = i;
-            <button class="drop-button" @onclick="() => PlayPiece(col)">🔽</button>
-        }
+<div class="color-selectors">
+    <label>Player 1 Color:</label>
+    <select @onchange="ChangeP1Color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="orange">Orange</option>
+        <option value="purple">Purple</option>
+        <option value="pink">Pink</option>
+    </select>
+
+    <label style="margin-left: 2em;">Player 2 Color:</label>
+    <select @onchange="ChangeP2Color">
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="black">Black</option>
+        <option value="cyan">Cyan</option>
+        <option value="magenta">Magenta</option>
+    </select>
+</div>
+
+<hr />
+
+<div class="game-container">
+
+    <!-- LEFT SIDE → BOARD + BUTTONS -->
+    <div class="board-section">
+
+        <div class="drop-row">
+            @for (byte i = 0; i < 7; i++)
+            {
+                var col = i;
+                <button class="drop-button" @onclick="() => PlayPiece(col)">🔽</button>
+            }
+        </div>
+
+        <div class="board">
+            @for (var i = 0; i < 42; i++)
+            {
+                <span class="container"><span></span></span>
+            }
+
+            @for (var i = 0; i < 42; i++)
+            {
+                <span class="@pieces[i]"></span>
+            }
+        </div>
+
     </div>
 
-    <div class="board">
-        @for (var i = 0; i < 42; i++)
-        {
-            <span class="container"><span></span></span>
-        }
-
-        @for (var i = 0; i < 42; i++)
-        {
-            <span class="@pieces[i]"></span>
-        }
+    <!-- RIGHT SIDE → MOVE HISTORY -->
+    <div class="history-panel">
+        <h3>Move History</h3>
+        <ul>
+            @foreach (var move in State.MoveHistory)
+            {
+                <li>@move</li>
+            }
+        </ul>
     </div>
 
 </div>
@@ -71,7 +111,6 @@
 
             byte landingRow = State.PlayPiece(col);
 
-            // IMPORTANT: assign both drop + row classes
             pieces[turn] = $"player{player} col{col} drop{landingRow} row{landingRow}";
         }
         catch (ArgumentException ex)
@@ -86,6 +125,32 @@
             GameState.WinState.Tie => "It's a tie!",
             _ => ""
         };
+    }
+
+    private void ChangeP1Color(ChangeEventArgs e)
+    {
+        var color = e.Value?.ToString();
+        if (!string.IsNullOrEmpty(color))
+        {
+            JS.InvokeVoidAsync(
+                "document.documentElement.style.setProperty",
+                "--player1",
+                color
+            );
+        }
+    }
+
+    private void ChangeP2Color(ChangeEventArgs e)
+    {
+        var color = e.Value?.ToString();
+        if (!string.IsNullOrEmpty(color))
+        {
+            JS.InvokeVoidAsync(
+                "document.documentElement.style.setProperty",
+                "--player2",
+                color
+            );
+        }
     }
 
     void ResetGame()
