@@ -76,5 +76,5 @@ C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\ConnectFou
 C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\ConnectFour.genruntimeconfig.cache
 C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\ref\ConnectFour.dll
 C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\scopedcss\Components\Board.razor.rz.scp.css
-C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\compressed\8rgyt56fu5-s79kds5ue7.gz
-C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\compressed\i191p69b07-s79kds5ue7.gz
+C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\compressed\8rgyt56fu5-ds57k2xkrv.gz
+C:\Users\P C\Documents\GitHub\cse325.001\ConnectFour\obj\Debug\net9.0\compressed\i191p69b07-ds57k2xkrv.gz
